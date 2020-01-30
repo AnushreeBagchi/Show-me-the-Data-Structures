@@ -1,0 +1,20 @@
+1. Least Recently used cache
+Explanation- 
+    I made use of ordered dictionary in python. This remembers the order in  which the keys are inserted.
+    The set method first checks whether it reached the max size, if so then deletes the first inserted record.
+    The get method, returns the value for the key if present or else returns -1. 
+    Also the get method deletes the value and adds it again to move it up in the cache
+Time Complexity: Time complexity for Dictionary lookup is constant O(1). Hence the overall time complexity will be O(1)
+Space Complexity: This will also be O(1) as we are deleting and utilizing the space in dictionary.
+
+2. File Recursion 
+Explanation:
+    Here in this program, first I have checked whether the path given is a file and ending with given suffix. If so then appending it to the list.
+    If the path is a directory, then listing all the contents of the directory and calling the recursive function again.
+Time complexity: 
+    Let 'n' be the depth of the subdirectories and 'm' be the average no of files in a directory.
+    Then the time complexity will be O(n*m)
+
+3. Huffman coding
+    
+    
