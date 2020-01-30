@@ -16,5 +16,20 @@ Time complexity:
     Then the time complexity will be O(n*m)
 
 3. Huffman coding
+
+4. Active directory:
+Explanation: 
+    Here I have used recursion to get whether the user is in the group. 
+Time complexity: Let  'n' be the depth of the directory and 'm' be the average number of directory in a group, then complexity will be O(n*m)
+
+5. Blockchain
+Explanation:
+    Here I have created a linkedlist with default head, tail and no_blocks.
+    The append method checks if linkedlist.head is present. If not the adds a block to the linkedlist.head. If present then appends the block to the tail.
+    The size method will give number of blocks in the linkedlist
+Time Complexity: 
+    The time complexity to append a block to the linkedlist is constant O(1)
+
+    
     
     

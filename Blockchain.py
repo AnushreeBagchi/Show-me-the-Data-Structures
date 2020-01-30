@@ -18,16 +18,21 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+        self.no_blocks = 0
 
     def append(self, data):
         if self.head is None:
             previous_hash = None
             self.head = Block(time.time(), data, previous_hash)
             self.tail = self.head
-            return
-        previous_hash = self.tail.hash
-        self.tail.next = Block(time.time(), data, previous_hash)
-        self.tail = self.tail.next
+        else:
+            previous_hash = self.tail.hash
+            self.tail.next = Block(time.time(), data, previous_hash)
+            self.tail = self.tail.next
+        self.no_blocks += 1
+    
+    def size(self):
+        return self.no_blocks
 
     
 
@@ -49,3 +54,4 @@ def test(ll):
     return "Test Passed"
 
 print(test(linkedlist))
+print(linkedlist.size())
