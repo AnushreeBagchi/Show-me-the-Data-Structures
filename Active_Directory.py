@@ -16,18 +16,34 @@ class Group(object):
 
 
 
-parent = Group("parent")
-child = Group("child")
-sub_child = Group("subchild")
+parent = Group("Parent")
+child = Group("Child")
+sub_child = Group("Subchild")
 
-sub_child_user = "sub_child_user"
+sub_child_user = "Sub_child_user"
 sub_child.add_user(sub_child_user)
 
 child.add_group(sub_child)
 parent.add_group(child)
+parent.add_user("Parent user")
+child.add_user("Child user")
 
-def is_user_in_group(user, group):
-    #post order traversal with recursion
-    node = group
+def is_user_in_group(input_user, group):
+    group_users = group.get_users()
+    child_groups = group.get_groups()
+    if group_users != []:
+        for group_user in group_users:
+            if group_user == input_user:
+                return True
+    elif child_groups != []:
+        child_groups = group.get_groups()
+        for child_group in child_groups:
+            is_user_in_group(input_user, child_group)
+    return False
 
-is_user_in_group("sub_child_user", "subchild")
+    
+
+print("Pass" if is_user_in_group(sub_child_user, parent) == False else "Fail")
+print("Pass" if is_user_in_group("Parent user", parent) == True else "Fail")
+print("Pass" if is_user_in_group("Parent user", child) == False else "Fail")
+
