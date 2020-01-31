@@ -13,8 +13,14 @@ Explanation:
     If the path is a directory, then listing all the contents of the directory and calling the recursive function again.
 Time complexity: 
     Let 'n' be the depth of the subdirectories and 'm' be the average no of files in a directory.
-    Then the time complexity will be O(n*m)
+    Then the time complexity will be O(nm)
 
-3. Huffman coding
+6. Union and Intersection
+Explanation Union: For Union I have traversed the list1 and have added all of its elements to the result.
+    Then traverse list2. If an element of list2 is already present in result then do not insert it to result, otherwise insert.
+Explanation Intersection:  For this I have traversed list1 and have checked for its each element in list2, if the element is present in list2, then added the element to result.
+
+Time complexity: For both union and intersection, let n be the number of items in linkedlist1 and m be the numberof items in linkedlist2.
+                Then time cmplexity ill be O(nm)
     
     
