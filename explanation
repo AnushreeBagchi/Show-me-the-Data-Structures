@@ -13,9 +13,7 @@ Explanation:
     If the path is a directory, then listing all the contents of the directory and calling the recursive function again.
 Time complexity: 
     Let 'n' be the depth of the subdirectories and 'm' be the average no of files in a directory.
-    Then the time complexity will be O(n*m)
-
-3. Huffman coding
+    Then the time complexity will be O(nm)
 
 4. Active directory:
 Explanation: 
@@ -30,6 +28,14 @@ Explanation:
 Time Complexity: 
     The time complexity to append a block to the linkedlist is constant O(1)
 
-    
+
+6. Union and Intersection
+Explanation Union: For union created an empty hashmap. Then I have traversed through bth the lists. 
+                            If the value is not present in the hashmap then appending the value to the result linkedlist.
+Explanation Intersection: For this I have created 2 hashmaps. First I traversed through linkedlist1 and added all the values to hashmap1.
+                        Then traversed through linkedlist2, if the value is present in hashmap1 and not in hashmap2(to remove duplicate) then adding the value to result linkedlist
+
+Time complexity: Let n be the number of items in linkedlist1 and m be the numberof items in linkedlist2.
+                The time complexity of get and set in hashmap is O(1). Then the time complexity for both union and intersection will be linear ie O(n)
     
     
