@@ -16,11 +16,12 @@ Time complexity:
     Then the time complexity will be O(nm)
 
 6. Union and Intersection
-Explanation Union: For Union I have traversed the list1 and have added all of its elements to the result.
-    Then traverse list2. If an element of list2 is already present in result then do not insert it to result, otherwise insert.
-Explanation Intersection:  For this I have traversed list1 and have checked for its each element in list2, if the element is present in list2, then added the element to result.
+Explanation Union: For union created an empty hashmap. Then I have traversed through bth the lists. 
+                            If the value is not present in the hashmap then appending the value to the result linkedlist.
+Explanation Intersection: For this I have created 2 hashmaps. First I traversed through linkedlist1 and added all the values to hashmap1.
+                        Then traversed through linkedlist2, if the value is present in hashmap1 and not in hashmap2(to remove duplicate) then adding the value to result linkedlist
 
-Time complexity: For both union and intersection, let n be the number of items in linkedlist1 and m be the numberof items in linkedlist2.
-                Then time cmplexity ill be O(nm)
+Time complexity: Let n be the number of items in linkedlist1 and m be the numberof items in linkedlist2.
+                The time complexity of get and set in hashmap is O(1). Then the time complexity for both union and intersection will be linear ie O(n)
     
     
