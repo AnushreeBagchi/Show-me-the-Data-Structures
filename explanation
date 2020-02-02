@@ -15,6 +15,17 @@ Time complexity:
     Let 'n' be the depth of the subdirectories and 'm' be the average no of files in a directory.
     Then the time complexity will be O(nm)
 
+3. Huffman Coding:
+Explanation: 
+    a) First I found out the frequency of all the characters in the string.
+    b) Then created a list with letters and its frequency
+    c) Then in the huffman tree function, getting the 2 nodes with lowest frequency. Adding both and creating a new node.
+       Also appending '0' code to the first node and '1' to the second node. This 2 nodes is replaced in the list with the new node created.
+        This is continues till the list have just one record(recursion). This creates the huffman_tree
+    d) To get the code appending codes from each node.
+    e) To get the decoded message, a lookup is made on the code_dict
+    
+
 4. Active directory:
 Explanation: 
     Here I have used recursion to get whether the user is in the group. 
