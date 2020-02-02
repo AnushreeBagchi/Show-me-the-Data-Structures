@@ -104,3 +104,14 @@ def test2():
     print("Pass" if decoded_string == input_string else "Fail")
     print("Pass" if encodes_codes == "11100111100110100001011011010001110111010111100010110" else "Fail")
 test2()
+
+def test3(): # edge case when input string is not provided
+    input_string  = ""
+    encodes_codes, codes_dict = huffman_tree_encoding(input_string)
+    decoded_string = huffman_tree_decoding(encodes_codes, codes_dict)
+
+    print("Pass" if decoded_string == input_string else "Fail")
+    print("Pass" if encodes_codes == "" else "Fail")
+test3()
+
+

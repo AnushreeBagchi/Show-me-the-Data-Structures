@@ -42,8 +42,9 @@ def is_user_in_group(input_user, group):
     return False
 
     
-
+# Test cases
 print("Pass" if is_user_in_group(sub_child_user, parent) == False else "Fail")
 print("Pass" if is_user_in_group("Parent user", parent) == True else "Fail")
 print("Pass" if is_user_in_group("Parent user", child) == False else "Fail")
 
+print("Pass" if is_user_in_group("", child) == False else "Fail") #edge case

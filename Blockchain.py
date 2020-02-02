@@ -34,24 +34,41 @@ class LinkedList:
     def size(self):
         return self.no_blocks
 
-    
 
-data1 = "Data for first block"
-data2 = "Data for second block"
-data3 = "Data for third block"
 
-linkedlist = LinkedList()
-linkedlist.append(data1)
-linkedlist.append(data2)
-linkedlist.append(data3)
+def test1():
+    data1 = "Data for first block"
+    data2 = "Data for second block"
+    data3 = "Data for third block"
 
-def test(ll):
-    node = ll.head
+    linkedlist = LinkedList()
+    linkedlist.append(data1)
+    linkedlist.append(data2)
+    linkedlist.append(data3)
+    node = linkedlist.head
     while node.next:
         if node.hash != node.next.previous_hash:
             return "Test Failed"
         node = node.next
     return "Test Passed"
+def test2(): #edge case with just one block
+    data1 = ""
+    linkedlist = LinkedList()
+    linkedlist.append(data1)
+    node = linkedlist.head
+    if node.next == None and node.hash != None:
+        return "Test Passed"
+    else:
+        return "Test Failed"
 
-print(test(linkedlist))
-print(linkedlist.size())
+def test3():  #edge case with no data
+    linkedlist = LinkedList()
+    node = linkedlist.head
+    if linkedlist.head == None:
+        return 'Test Passed'
+    else:
+        return "Test Failed"
+print(test1())
+print(test2())
+print(test3())
+

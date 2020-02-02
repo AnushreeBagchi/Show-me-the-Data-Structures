@@ -14,6 +14,8 @@ Explanation:
 Time complexity: 
     Let 'n' be the depth of the subdirectories and 'm' be the average no of files in a directory.
     Then the time complexity will be O(nm)
+Space complexity:
+    This will be O(n) as we are appending to the files list
 
 3. Huffman Coding:
 Explanation: 
@@ -24,12 +26,13 @@ Explanation:
         This is continues till the list have just one record(recursion). This creates the huffman_tree
     d) To get the code appending codes from each node.
     e) To get the decoded message, a lookup is made on the code_dict
-    
+
 
 4. Active directory:
 Explanation: 
     Here I have used recursion to get whether the user is in the group. 
-Time complexity: Let  'n' be the depth of the directory and 'm' be the average number of directory in a group, then complexity will be O(n*m)
+Time complexity: Let  'n' be the depth of the directory and 'm' be the average number of directory in a group, then complexity will be O(nm)
+Space complexity: Let 'n' be the depth of the directory then space complexity will be O(n)
 
 5. Blockchain
 Explanation:
@@ -38,7 +41,7 @@ Explanation:
     The size method will give number of blocks in the linkedlist
 Time Complexity: 
     The time complexity to append a block to the linkedlist is constant O(1)
-
+Space complexity : Let n be the number of blocks then space complexity will be O(n)
 
 6. Union and Intersection
 Explanation Union: For union created an empty hashmap. Then I have traversed through bth the lists. 
@@ -48,5 +51,8 @@ Explanation Intersection: For this I have created 2 hashmaps. First I traversed 
 
 Time complexity: Let n be the number of items in linkedlist1 and m be the numberof items in linkedlist2.
                 The time complexity of get and set in hashmap is O(1). Then the time complexity for both union and intersection will be linear ie O(n)
-    
+Space complexity:
+    If n be the number of keys, then space complexity of hashmap will be O(n*n)[n sqare- n space for holding the key and n for holding corresponding values]
+    Let n be the number of nodes in llist1 and m be nodes in llist2 . The space complexity will be O(n*n*m*m)
+
     
