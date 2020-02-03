@@ -30,7 +30,7 @@ Explanation:
 
 4. Active directory:
 Explanation: 
-    Here I have used recursion to get whether the user is in the group. 
+    Here I have used recursion to get whether the user is in the group. I am traversing the tree and checking in each level whether user is present. As soon as we get the user, returning True.
 Time complexity: Let  'n' be the depth of the directory and 'm' be the average number of directory in a group, then complexity will be O(nm)
 Space complexity: Let 'n' be the depth of the directory then space complexity will be O(n)
 

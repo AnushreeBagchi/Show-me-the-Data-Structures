@@ -31,32 +31,27 @@ child.add_user("Child user")
 def is_user_in_group(input_user, group):
     if group is None:
         raise ValueError('Please enter a valid group')
-    userList = return_users_in_group(group, list())
-    if input_user in userList:
-        return True
-    return False
+    return return_is_user_in_group(input_user, group, bool())
 
-def return_users_in_group(group, user_list):
+def return_is_user_in_group(input_user, group, is_present):
     group_users = group.get_users()
-    child_groups = group.get_groups()
-    if group_users != []:
-        for group_user in group_users:
-            user_list.append(group_user)
-    if child_groups != []:
+    if input_user in group_users:
+        return True
+    else: 
         child_groups = group.get_groups()
         for child_group in child_groups:
-            return_users_in_group(child_group, user_list)
-    return user_list
-
+            is_present = return_is_user_in_group(input_user, child_group, is_present )
+            return is_present
+    return False        
     
 # Test cases
 print("Pass" if is_user_in_group(sub_child_user, parent) == True else "Fail")
 print("Pass" if is_user_in_group("Parent user", parent) == True else "Fail")
 print("Pass" if is_user_in_group("Parent user", child) == False else "Fail")
+print("Pass" if is_user_in_group("Child user", parent) == True else "Fail")
 
 print("Pass" if is_user_in_group("", child) == False else "Fail") #edge case when user is not provided
-
-def test5():
+def test5(): # edge case when None group is provided
     try:
         is_user_in_group("Parent user", None)
     except ValueError as err:
