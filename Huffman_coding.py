@@ -44,6 +44,8 @@ def get_codes(huffman_tree, level, letter):
             else:
                 level.remove(node)
     code = ""
+    if len(checklist) == 1: #In case of single character, the root node will not have any code. So setting '0' for single character
+        checklist[0].append(0)
     for node in checklist:
         if letter in node[1]:
             if node[1] == letter:
@@ -128,11 +130,25 @@ def test3():
 
     print("Pass" if decoded_string == input_string else "Fail")
     print("Pass" if encodes_codes == "" else "Fail")
-
-    print("-----------------------------------------------------------------------------")
+    print("----------------------------------------------------------\n")
 test3()
 
-def test4():
+def test4(): #In case of single character
+    print("Test 4- Edge case when a single character is present")
+    input_string = "AAAAAAAAAA"
+    encodes_codes, codes_dict = huffman_tree_encoding(input_string)
+    print("Codes for each charaters in sentence = {}".format(codes_dict))
+
+    decoded_string = huffman_tree_decoding(encodes_codes, codes_dict)
+    print("Encoded string = {}".format(encodes_codes))
+    print("Decoded string: {}".format(decoded_string))
+
+    print("Pass" if decoded_string == input_string else "Fail")
+    print("Pass" if encodes_codes == "0000000000" else "Fail")
+    print("-----------------------------------------------------------\n")
+test4()
+
+def test5():
     print("Test 4 - Edge case when input is None")
     input_string = None
     try:
@@ -140,6 +156,4 @@ def test4():
     except ValueError as err:
         print("Pass")
 
-test4()
-
-    
+test5()
