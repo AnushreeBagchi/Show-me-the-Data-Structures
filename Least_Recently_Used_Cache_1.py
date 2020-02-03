@@ -1,4 +1,5 @@
 import collections
+import time
 class LinkedList:
     def __init__(self, key, value):
         self.key = key
@@ -43,7 +44,7 @@ def test1():
     our_cache.set(4, 4)
     print("Pass" if our_cache.get(1)== 1 else "Fail")      # returns 1
     print("Pass" if our_cache.get(2) == 2 else "Fail")      # returns 2
-    print("Pass" if our_cache.get(9) == -1 else "Fail")      # edge case returns -1 because 9 is not present in the cache
+    print("Pass" if our_cache.get(9) == -1 else "Fail")     # return -1
     our_cache.set(5, 5) 
     our_cache.set(6, 6)
     print("Pass" if our_cache.get(3) == -1 else "Fail")      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry 
@@ -60,4 +61,7 @@ def test2(): #edge case when cache size is 0 or -1
 test2()
 
 def test3():
-    # print("Pass" if our_cache.get() == -1 else "Fail")   #edge case when key is not provided
+    our_cache = LRU_Cache(3)
+    print("Pass" if our_cache.get() == -1 else "Fail")   #edge case when key is not provided
+
+test3()

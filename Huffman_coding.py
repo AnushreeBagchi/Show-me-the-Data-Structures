@@ -1,3 +1,4 @@
+import sys
 def get_freq(string):
     letters = []
     only_letters = []
@@ -55,6 +56,8 @@ def get_codes(huffman_tree, level, letter):
 
 
 def huffman_tree_encoding(string):
+    if string is None:
+        raise ValueError('Please enter a valid string')
     letters , only_letters = get_freq(string)
     huffman_tree, nodes = get_leaf_nodes(letters)
     huffman_tree, new_nodes = get_huffman_tree(nodes, huffman_tree)
@@ -79,39 +82,64 @@ def huffman_tree_decoding(encoded_string, code_dict):
                 decoded += letter
     return decoded
 
+def printDetails(codes_dict , encoded, decoded_string, input):
+    print("Codes for each charaters in sentence = {}".format(codes_dict))
+    print("Encoded string = {}".format(encoded))
+    print("Decoded string = {}".format(decoded_string))
+
+    print("Size of string before encoding: {} bits".format(len(input)*8))
+    print("Size of string after encoding: {} bits".format(len(encoded)))
+    print("Size of the decoded string = {} bits".format(len(decoded_string)*8))
+
+
 def test1():
+    print("Test 1")
     input_string = "The bird is the word"
     encodes_codes, codes_dict = huffman_tree_encoding(input_string)
-    print("Codes for each charaters in sentence = {}".format(codes_dict))
-
     decoded_string = huffman_tree_decoding(encodes_codes, codes_dict)
-    print("Encoded string = {}".format(encodes_codes))
-    print("Decoded string: {}".format(decoded_string))
+
+    printDetails(codes_dict , encodes_codes, decoded_string, input_string)
 
     print("Pass" if decoded_string == input_string else "Fail")
     print("Pass" if encodes_codes == "1110000100011011101010100111111001001111101010001000110101101101001111" else "Fail")
+    print("--------------------------------------------------------------------------------------------")
 test1()
 
 def test2():
+    print("Test2")
     input_string = "She sells sea shells"
     encodes_codes, codes_dict = huffman_tree_encoding(input_string)
-    print("Codes for each charaters in sentence = {}".format(codes_dict))
-
     decoded_string = huffman_tree_decoding(encodes_codes, codes_dict)
-    print("Encoded string = {}".format(encodes_codes))
-    print("Decoded string: {}".format(decoded_string))
+
+    printDetails(codes_dict , encodes_codes, decoded_string, input_string)
 
     print("Pass" if decoded_string == input_string else "Fail")
     print("Pass" if encodes_codes == "11100111100110100001011011010001110111010111100010110" else "Fail")
+    print("-----------------------------------------------------------------------------------")
 test2()
 
-def test3(): # edge case when input string is not provided
+def test3():
+    print("Test 3 - Edge case when input string is not provided ")
     input_string  = ""
     encodes_codes, codes_dict = huffman_tree_encoding(input_string)
     decoded_string = huffman_tree_decoding(encodes_codes, codes_dict)
 
+    printDetails(codes_dict , encodes_codes, decoded_string, input_string)
+
     print("Pass" if decoded_string == input_string else "Fail")
     print("Pass" if encodes_codes == "" else "Fail")
+
+    print("-----------------------------------------------------------------------------")
 test3()
 
+def test4():
+    print("Test 4 - Edge case when input is None")
+    input_string = None
+    try:
+        encodes_codes, codes_dict = huffman_tree_encoding(input_string)
+    except ValueError as err:
+        print("Pass")
 
+test4()
+
+    
