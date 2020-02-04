@@ -5,8 +5,8 @@ Explanation-
     The get method, returns the value for the key if present or else returns -1. 
     Also the get method deletes the value and adds it again to move it up in the cache
 Time Complexity: Time complexity for Dictionary lookup is constant O(1). Hence the overall time complexity will be O(1)
-Space Complexity: This will also be O(1) as we are deleting and utilizing the space in dictionary.
-
+Space Complexity: Let there be n number of key value pair in the cache. Then the space requred will be 2n.
+                    So the space complexity will be O(n)
 2. File Recursion 
 Explanation:
     Here in this program, first I have checked whether the path given is a file and ending with given suffix. If so then appending it to the list.
@@ -15,7 +15,9 @@ Time complexity:
     Let 'n' be the depth of the subdirectories and 'm' be the average no of files in a directory.
     Then the time complexity will be O(nm)
 Space complexity:
-    This will be O(n) as we are appending to the files list
+    Let n be the depth of the directory. Since Each recursive call will occupy a stack space. so space required will be n.
+    Also let m be the number of files found which we are appending to files list. 
+    So the tome complexity will be O(n+m)
 
 3. Huffman Coding:
 Explanation: 
@@ -26,13 +28,18 @@ Explanation:
         This is continues till the list have just one record(recursion). This creates the huffman_tree
     d) To get the code appending codes from each node.
     e) To get the decoded message, a lookup is made on the code_dict
-
+Time complexity: Let n be the number of distinct alphabets at the leaf. There will be O(n) time required for each iteration and O(log n) required for sorting and finding the lowest probable nodes.
+    So the time complexity will be O(nlogn)
+Space complexity : Let tree have n nodes and let m be the length of decoded text. 
+    Space complexity will be O(n+m)
 
 4. Active directory:
 Explanation: 
     Here I have used recursion to get whether the user is in the group. I am traversing the tree and checking in each level whether user is present. As soon as we get the user, returning True.
 Time complexity: Let  'n' be the depth of the directory and 'm' be the average number of directory in a group, then complexity will be O(nm)
-Space complexity: Let 'n' be the depth of the directory then space complexity will be O(n)
+Space complexity:Let n be the depth of the directory. Since Each recursive call will occupy a stack space. so space required will be n.
+    So the space complexity will be O(n)
+
 
 5. Blockchain
 Explanation:
@@ -40,7 +47,7 @@ Explanation:
     The append method checks if linkedlist.head is present. If not the adds a block to the linkedlist.head. If present then appends the block to the tail.
     The size method will give number of blocks in the linkedlist
 Time Complexity: 
-    The time complexity to append a block to the linkedlist is constant O(1)
+    The time complexity to append a block to the linkedlist with my implementation will be O(n). For searching it will O(n)
 Space complexity : Let n be the number of blocks then space complexity will be O(n)
 
 6. Union and Intersection
@@ -52,7 +59,7 @@ Explanation Intersection: For this I have created 2 hashmaps. First I traversed 
 Time complexity: Let n be the number of items in linkedlist1 and m be the numberof items in linkedlist2.
                 The time complexity of get and set in hashmap is O(1). Then the time complexity for both union and intersection will be linear ie O(n)
 Space complexity:
-    If n be the number of keys, then space complexity of hashmap will be O(n*n)[n sqare- n space for holding the key and n for holding corresponding values]
-    Let n be the number of nodes in llist1 and m be nodes in llist2 . The space complexity will be O(n*n*m*m)
+    If n be the number of keys value pair in a dictionary, then space complexity of hashmap will be O(n)
+    Let n be the number of nodes in llist1 and m be nodes in llist2 . The space complexity will be O(nm)
 
     
