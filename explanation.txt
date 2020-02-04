@@ -47,7 +47,7 @@ Explanation:
     The append method checks if linkedlist.head is present. If not the adds a block to the linkedlist.head. If present then appends the block to the tail.
     The size method will give number of blocks in the linkedlist
 Time Complexity: 
-    The time complexity to append a block to the linkedlist with my implementation will be O(n). For searching it will O(n)
+    The time complexity to append a block to the linkedlist with my implementation will be O(1). For searching it will O(n)
 Space complexity : Let n be the number of blocks then space complexity will be O(n)
 
 6. Union and Intersection
@@ -60,6 +60,6 @@ Time complexity: Let n be the number of items in linkedlist1 and m be the number
                 The time complexity of get and set in hashmap is O(1). Then the time complexity for both union and intersection will be linear ie O(n)
 Space complexity:
     If n be the number of keys value pair in a dictionary, then space complexity of hashmap will be O(n)
-    Let n be the number of nodes in llist1 and m be nodes in llist2 . The space complexity will be O(nm)
+    Let n be the number of nodes in llist1 and m be nodes in llist2 . The space complexity will be O(n+m)
 
     
